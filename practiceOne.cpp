@@ -61,10 +61,13 @@ void moneyExchangeProgram()
 double findWorkerSalary(float hours, float wage, char gender)
 {
     float salary = hours * wage;
-    float remainPercent = 1; //1=100%
-    if(salary>=1000){
-        if(gender == 'm' || gender == 'M') remainPercent = 0.5; 
-        else remainPercent = 0.7;
+    float remainPercent = 1; // 1=100%
+    if (salary >= 1000)
+    {
+        if (gender == 'm' || gender == 'M')
+            remainPercent = 0.5;
+        else
+            remainPercent = 0.7;
     }
     return salary * remainPercent;
     // if (salary >= 1000)
@@ -81,40 +84,46 @@ double findWorkerSalary(float hours, float wage, char gender)
     // }
 }
 
-void caculateWorkerSalary(){
+void caculateWorkerSalary()
+{
     string name, position;
     char gender;
     float hours, wage;
     while (true)
-    {   
+    {
         system("cls");
-        cout<<"=======[Input worder information]======="<<endl;
-        cout<<"Enter worker name: "; cin>>name;
-        cout<<"Enter worker gender: "; cin>>gender;
-        cout<<"Enter positon: "; cin>>position;
-        cout<<"Enter hours: "; cin>>hours;
-        cout<<"Enter wage: "; cin>>wage;
-        
-        cout<<"==========<<Worker Summary>>========"<<endl;
-        cout<<"Worker name is: "<<name<<endl;
-        cout<<"Worker gender is: "<<gender<<endl;
-        cout<<"Worker position is: "<<position<<endl;
-        cout<<"Hours: "<<hours<<endl;
-        cout<<"Wage: "<<wage<<endl;
-        cout<<"Salary is: "<<findWorkerSalary(hours, wage, gender)<<" $"<<endl;
+        cout << "=======[Input worder information]=======" << endl;
+        cout << "Enter worker name: ";
+        cin >> name;
+        cout << "Enter worker gender: ";
+        cin >> gender;
+        cout << "Enter positon: ";
+        cin >> position;
+        cout << "Enter hours: ";
+        cin >> hours;
+        cout << "Enter wage: ";
+        cin >> wage;
 
-        //add logic to continue or exit the program
-        cout<<"<<<Press Enter to continue , 'q' | Q to exit>>>"<<endl;
+        cout << "==========<<Worker Summary>>========" << endl;
+        cout << "Worker name is: " << name << endl;
+        cout << "Worker gender is: " << gender << endl;
+        cout << "Worker position is: " << position << endl;
+        cout << "Hours: " << hours << endl;
+        cout << "Wage: " << wage << endl;
+        cout << "Salary is: " << findWorkerSalary(hours, wage, gender) << " $" << endl;
+
+        // add logic to continue or exit the program
+        cout << "<<<Press Enter to continue , 'q' | Q to exit>>>" << endl;
         cin.ignore();
         char quitOption = cin.get();
         // this method for input only 'q'
         // if(cin.get() == 'q') break;
 
         // this method for input 'q' or 'Q'
-        if(quitOption == 'q' || quitOption == 'Q') break;
+        if (quitOption == 'q' || quitOption == 'Q')
+            break;
     }
 }
-
 
 float exchangeUSDKHR(bool isUSDToKHR)
 {
@@ -132,6 +141,30 @@ float exchangeUSDKHR(bool isUSDToKHR)
         // KHR -> USD
         return amount / 4000;
     }
+}
+
+// long mulSumOfN()
+// {
+//     int n;
+//     cout << "Enter n: ";
+//     cin >> n;
+//     long result = 0;
+//     for (int i = 1; i <= n; i++)
+//     {
+//         result = result + i;
+//     }
+//     return result;
+// }
+// multiplication is same
+long mulSumOfN(bool isSum)
+{
+    int n;
+    cout << "Enter n: ";
+    cin >> n;
+    double result = (isSum) ? 0 : 1;
+    for (int i = 1; i <= n; i++)
+        result = (isSum) ? result + i : result * i;
+    return result;
 }
 
 int main()
@@ -154,7 +187,11 @@ int main()
             caculateWorkerSalary();
             break;
         case 3:
-            // addition();
+        {
+            long result = mulSumOfN(true);
+            cout << "Result is: " << result << endl;
+        }
+            pressEnterToContinue();
             break;
         case 4:
         {
